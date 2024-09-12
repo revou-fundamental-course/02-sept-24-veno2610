@@ -1,12 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css\styles.css">
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator Geometri</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Kalkulator Geometri</h1>
+
+      <div class="menu">
+        <button
+          id="btnSegitiga"
+          onclick="showCalculator('segitiga', 'btnSegitiga')"
+        >
+          Segitiga
+        </button>
+        <button
+          id="btnJajarGenjang"
+          onclick="showCalculator('jajarGenjang', 'btnJajarGenjang')"
+        >
+          Jajar Genjang
+        </button>
+      </div>
+
+      <!-- Kalkulator Segitiga -->
+      <div id="segitiga" class="calculator">
+        <h3>Kalkulator Segitiga</h3>
+        <div class="container-calculator">
+          <div class="luas">
+            <h4>Luas Segitiga</h4>
+            <img
+              src="assets/images/luassegitiga.jpeg"
+              alt="gambar luas segitiga"
+            />
+            <p class="judul">Rumus luas segitiga yaitu:</p>
+            <p class="rumus">L = 1/2 × a × t</p>
+            <p class="detail-rumus">
+              Di mana: <br />L = Luas <br />a = Panjang Alas <br />t = Tinggi
+            </p>
+            <div class="input-group">
+              <label for="base">Alas (cm):</label>
+              <input
+                type="number"
+                id="alasSegitiga"
+                placeholder="Masukkan alas"
+              />
+            </div>
+            <div class="input-group">
+              <label for="height">Tinggi (cm):</label>
+              <input
+                type="number"
+                id="tinggiSegitiga"
+                placeholder="Masukkan tinggi"
+              />
+            </div>
+            <button class="calculate" onclick="calculateTriangleArea()">
+              Hitung Luas
+            </button>
+            <div class="result" id="hasilLuasSegitiga"></div>
+          </div>
+          <div class="keliling">
+            <h4>Keliling Segitiga</h4>
+            <img
+              src="assets/images/kelilingsegitiga.jpeg"
+              alt="gambar luas segitiga"
+            />
+            <p class="judul">Rumus Keliling segitiga yaitu:</p>
+            <p class="rumus">K = S1 + S2 + S3</p>
+            <p class="detail-rumus">
+              Di mana: <br />K = Keliling <br />S1 = Sisi A <br />S2 = Sisi B
+              <br />S3 = Sisi C
+            </p>
+            <div class="input-group">
+              <label for="side1">Sisi 1 (cm):</label>
+              <input
+                type="number"
+                id="sisiSegitiga1"
+                placeholder="Masukkan sisi 1"
+              />
+            </div>
+            <div class="input-group">
+              <label for="side2">Sisi 2 (cm):</label>
+              <input
+                type="number"
+                id="sisiSegitiga2"
+                placeholder="Masukkan sisi 2"
+              />
+            </div>
+            <div class="input-group">
+              <label for="side3">Sisi 3 (cm):</label>
+              <input
+                type="number"
+                id="sisiSegitiga3"
+                placeholder="Masukkan sisi 3"
+              />
+            </div>
+            <button class="calculate" onclick="calculateTrianglePerimeter()">
+              Hitung Keliling
+            </button>
+            <div class="result" id="HasilKelilingSegitiga"></div>
+          </div>
+          <!-- Tombol Reset untuk Segitiga -->
+        </div>
+        <button class="reset" onclick="resetTriangleCalculator()">Reset</button>
+      </div>
+
+      <!-- Kalkulator Jajar Genjang -->
+      <div id="jajarGenjang" class="calculator">
+        <h3>Kalkulator Jajar Genjang</h3>
+        <div class="container-calculator">
+          <div class="luas">
+            <h4>Luas Jajar Genjang</h4>
+            <img
+              src="assets/images/luasjajargenjang.jpeg"
+              alt="gambar luas jajar genjang"
+            />
+            <p class="judul">Rumus luas jajar genjang yaitu:</p>
+            <p class="rumus">L = a × t</p>
+            <p class="detail-rumus">
+              Di mana: <br />L = Luas <br />a = Panjang Alas <br />t = Tinggi
+            </p>
+            <div class="input-group">
+              <label for="base">Alas (cm):</label>
+              <input
+                type="number"
+                id="alasJajarGenjang"
+                placeholder="Masukkan alas"
+              />
+            </div>
+            <div class="input-group">
+              <label for="height">Tinggi (cm):</label>
+              <input
+                type="number"
+                id="tinggiUntukLuasJajarGenjang"
+                placeholder="Masukkan tinggi"
+              />
+            </div>
+            <button class="calculate" onclick="calculateParallelogramArea()">
+              Hitung Luas
+            </button>
+            <div class="result" id="hasilLuasJajarGenjang"></div>
+          </div>
+          <div class="keliling">
+            <h4>Keliling Jajar Genjang</h4>
+            <img
+              src="assets/images/luasjajargenjang.jpeg"
+              alt="gambar keliling jajar genjang"
+            />
+            <p class="judul">Rumus keliling jajar genjang yaitu:</p>
+            <p class="rumus">K = 2 × (a + b)</p>
+            <p class="detail-rumus">
+              Di mana: <br />K = Keliling <br />a = Panjang Alas <br />b = Sisi
+              Miring
+            </p>
+            <div class="input-group">
+              <label for="side">Alas (cm):</label>
+              <input
+                type="number"
+                id="alasJajarGenjangKeliling"
+                placeholder="Masukkan alas"
+              />
+            </div>
+            <div class="input-group">
+              <label for="side">Sisi Miring (cm):</label>
+              <input
+                type="number"
+                id="sisiMiringJajarGenjang"
+                placeholder="Masukkan sisi miring"
+              />
+            </div>
+            <button
+              class="calculate"
+              onclick="calculateParallelogramPerimeter()"
+            >
+              Hitung Keliling
+            </button>
+            <div class="result" id="hasilKelilingJajarGenjang"></div>
+          </div>
+          <!-- Tombol Reset untuk Jajar Genjang -->
+        </div>
+        <button class="reset" onclick="resetParallelogramCalculator()">
+          Reset
+        </button>
+      </div>
+    </div>
+  </body>
 </html>
